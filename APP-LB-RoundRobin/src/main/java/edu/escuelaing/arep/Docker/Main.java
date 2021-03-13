@@ -52,11 +52,11 @@ public class Main {
         
         URL logService = null;
         if (balanceo == 1){
-            logService = new URL("http://ec2-54-236-9-109.compute-1.amazonaws.com:35001/Resultados?cadena="+cadena);
+            logService = new URL("localhost:35001/Resultados?cadena="+cadena);
         } else if (balanceo == 2){
-            logService = new URL("http://ec2-54-236-9-109.compute-1.amazonaws.com:35002/Resultados?cadena="+cadena);
+            logService = new URL("localhost:35002/Resultados?cadena="+cadena);
         } else {
-            logService = new URL("http://ec2-54-236-9-109.compute-1.amazonaws.com:35003/Resultados?cadena="+cadena);
+            logService = new URL("localhost:35003/Resultados?cadena="+cadena);
         }
         
         System.out.println(logService);
