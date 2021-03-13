@@ -10,8 +10,8 @@ public class SparkWebServer
 {
     public static void main(String[] args){
         port(getPort());
-        get("/ingresar", (req,res) -> addDatos(req,res));
-        get("/consultar", (req,res) -> viewDatos(req,res));
+        get("/Datos", (req,res) -> addDatos(req,res));
+        get("/Resultados", (req,res) -> viewDatos(req,res));
     }
     public static String addDatos(Request req, Response res){
         String pageContent

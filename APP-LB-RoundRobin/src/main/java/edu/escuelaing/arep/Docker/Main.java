@@ -19,7 +19,7 @@ public class Main {
 
         port(getPort());
         get("/Datos", (req, res) -> addDatos(req, res) );
-        get("/Resultados", (req, res) -> resultsPage(req, res));
+        get("/Resultados", (req, res) -> viewDatos(req, res));
 
     }
 
@@ -47,11 +47,11 @@ public class Main {
         balanceo = getNumLogService();
         URL logService = null;
         if (balanceo == 1){
-            logService = new URL("localhost:35001/Resultados?cadena="+cadena);
+            logService = new URL("localhost:34001/Resultados?cadena="+cadena);
         } else if (balanceo == 2){
-            logService = new URL("localhost:35002/Resultados?cadena="+cadena);
+            logService = new URL("localhost:34002/Resultados?cadena="+cadena);
         } else {
-            logService = new URL("localhost:35003/Resultados?cadena="+cadena);
+            logService = new URL("localhost:34003/Resultados?cadena="+cadena);
         }
         URLConnection con = logService.openConnection();
         in = new BufferedReader(new InputStreamReader(
