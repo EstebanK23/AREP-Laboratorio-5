@@ -18,12 +18,12 @@ public class Main {
     public static void main(String args[]) {
 
         port(getPort());
-        get("/Datos", (req, res) -> inputDataPage(req, res) );
+        get("/Datos", (req, res) -> addDatos(req, res) );
         get("/Resultados", (req, res) -> resultsPage(req, res));
 
     }
 
-    private static String inputDataPage(Request req, Response res) {
+    private static String addDatos(Request req, Response res) {
         String pageContent
                 = "<!DOCTYPE html>"
                 + "<html>"
@@ -40,16 +40,11 @@ public class Main {
         return pageContent;
     }
     
-    private static String resultsPage(Request req, Response res) throws MalformedURLException, IOException {
+    private static String viewDatos(Request req, Response res) throws MalformedURLException, IOException {
         
         String cadena = req.queryParams("cadena").replace(" ","+");
-        
-        //System.out.println(req.toString());
-        
         BufferedReader in = null;
-        
         balanceo = getNumLogService();
-        
         URL logService = null;
         if (balanceo == 1){
             logService = new URL("localhost:35001/Resultados?cadena="+cadena);
@@ -58,11 +53,7 @@ public class Main {
         } else {
             logService = new URL("localhost:35003/Resultados?cadena="+cadena);
         }
-        
-        System.out.println(logService);
-        
         URLConnection con = logService.openConnection();
-        
         in = new BufferedReader(new InputStreamReader(
 				con.getInputStream()));
 		
