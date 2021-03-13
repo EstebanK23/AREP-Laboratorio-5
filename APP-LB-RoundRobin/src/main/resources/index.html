@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+   <title>Pruebas API RESTful Spark</title>
+</head>
+
+<body>
+   <h2>Crear usuario</h2>
+   <form method="post" action="http://localhost:4567/users" id="crear" enctype='application/json'>
+     <table>
+       <tr>
+         <td class="label">
+           Nombre
+         </td>
+         <td>
+           <input type="text" name="name">
+        </td>
+       </tr>
+
+       <tr>
+         <td class="label">
+           Correo electr&oacute;nico
+         </td>
+         <td>
+           <input type="text" name="email">
+         </td>
+       </tr>
+     </table>
+
+     <input type="submit">
+   </form>
+</body>
+
+</html>
